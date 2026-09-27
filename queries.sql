@@ -44,7 +44,7 @@ HAVING
             ON p2.product_id = s2.product_id
     )
 ORDER BY
-    average_income DESC;
+    average_income ASC;
 
 
 /* Информация о выручке по дням недели*/
@@ -62,7 +62,7 @@ GROUP BY
     seller,
     day_of_week
 ORDER BY
-    day_of_week,
+    MIN(EXTRACT(ISODOW FROM s.sale_date)),
     seller;
 
 
@@ -129,18 +129,3 @@ WHERE
     AND rnc.rn = 1
 ORDER BY
     1;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
